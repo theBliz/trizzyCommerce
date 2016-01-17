@@ -1,0 +1,226 @@
+<% include header %>
+
+
+<!-- Slider
+================================================== -->
+<div class="container fullwidth-element home-slider">
+
+  <div class="tp-banner-container">
+    <div class="tp-banner">
+      <ul>
+        <!-- Slide 1  -->
+        <li data-transition="{{slide.dataTransition}}" data-slotamount="7" data-masterspeed="1500" ng-repeat="slide in slidesContent">
+          <img ng-src="{{slide.image}}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+          <div class="caption sfb fadeout" data-x="145" data-y="170" data-speed="400" data-start="800"  data-easing="Power4.easeOut">
+            <h2>{{slide.title}}</h2>
+            <h3>{{slide.subtitle}}</h3>
+            <a href="{{slide.path}}" class="caption-btn">{{slide.callToAction}}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- Featured
+================================================== -->
+<div class="container" >
+
+  <div class="one-third column">
+    <a href="#" class="img-caption" >
+      <figure>
+        <img src="/img/featured_home/featured_cover.jpg" alt="" />
+        <figcaption>
+          <h3>Covers</h3>
+          <span>Sceglila e personalizzala!</span>
+        </figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div class="one-third column">
+    <a href="#" class="img-caption" >
+      <figure>
+        <img src="/img/featured_home/featured_dualsim.jpg" alt="" />
+        <figcaption>
+          <h3>Dual SIM</h3>
+          <span>Selezionati per te</span>
+        </figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div class="one-third column">
+    <a href="#" class="img-caption" >
+      <figure>
+        <img src="/img/featured_home/featured_4k.jpg" alt="" />
+        <figcaption>
+          <h3>Televisioni</h3>
+          <span>Le migliori tv 4k</span>
+        </figcaption>
+      </figure>
+    </a>
+  </div>
+
+</div>
+<div class="clearfix"></div>
+
+
+<!-- New Arrivals
+================================================== -->
+<div class="container">
+
+  <!-- Headline -->
+  <div class="sixteen columns">
+    <h3 class="headline">New Arrivals</h3>
+    <span class="line margin-bottom-0"></span>
+  </div>
+
+  <!-- Carousel -->
+  <div id="new-arrivals" class="showbiz-container sixteen columns" >
+
+    <!-- Navigation -->
+    <div class="showbiz-navigation">
+      <div id="showbiz_left_1" class="sb-navigation-left"><i class="fa fa-angle-left"></i></div>
+      <div id="showbiz_right_1" class="sb-navigation-right"><i class="fa fa-angle-right"></i></div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- Products -->
+    <div class="showbiz" data-left="#showbiz_left_1" data-right="#showbiz_right_1" data-play="#showbiz_play_1" >
+      <div class="overflowholder">
+
+        <ul ng-show="nuovi_arrivi.length>0">
+
+          <!-- Product ng-repeat nuovi_arrivi -->
+          <li ng-repeat="nuovo_arrivo in nuovi_arrivi">
+            <figure class="product">
+              <div class="mediaholder">
+                <a href="/product/{{nuovo_arrivo.id}}">
+                  <img alt="" ng-src="{{nuovo_arrivo.images[0]}}"/>
+                  <div class="cover">
+                    <img alt="" ng-src="{{nuovo_arrivo.images[1]}}"/>
+                  </div>
+                </a>
+                <a href="#" class="product-button"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+              </div>
+
+              <a href="variable-product-page.html">
+                <section>
+                  <span class="product-category">{{nuovo_arrivo.category_name}}</span>
+                  <h5 class="truncate">{{nuovo_arrivo.name}}</h5>
+                  <span class="product-price">${{nuovo_arrivo.price}}</span>
+                </section>
+              </a>
+            </figure>
+          </li>
+
+        </ul>
+        <div class="clearfix"></div>
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Parallax Banner
+================================================== -->
+<div class="parallax-banner fullwidth-element"  data-background="#000" data-opacity="0.45" data-height="200">
+  <img src="/img/spedizioni.jpg" alt="" />
+  <div class="parallax-overlay"></div>
+  <div class="parallax-title">Spedizione Gratuita.<span>sempre</span></div>
+</div>
+
+
+<!-- Product Lists
+================================================== -->
+<div class="container margin-bottom-25">
+
+  <!-- Best Sellers -->
+  <div class="one-third column">
+
+    <!-- Headline -->
+    <h3 class="headline">Best Sellers</h3>
+    <span class="line margin-bottom-0"></span>
+    <div class="clearfix"></div>
+
+
+    <ul class="product-list" ng-show="best_sellers.length>0">
+
+      <li ng-repeat="best_seller in best_sellers">
+        <a href="/product/{{best_seller.id}}">
+          <img ng-src="{{best_seller.images[0]}}" alt="" style="width:80px" />
+          <div class="product-list-desc">{{best_seller.name}} <i>${{best_seller.price}}</i></div>
+        </a>
+      </li>
+
+      <li><div class="clearfix"></div></li>
+
+    </ul>
+
+  </div>
+
+
+  <!-- Top Rated -->
+  <div class="one-third column">
+
+    <!-- Headline -->
+    <h3 class="headline">Top Rated</h3>
+    <span class="line margin-bottom-0"></span>
+    <div class="clearfix"></div>
+
+
+    <ul class="product-list top-rated" ng-show="ratings.length>0">
+
+      <li ng-repeat="rate in ratings">
+        <a href="/product/{{rate.id}}">
+          <img ng-src="{{rate.images[0]}}" alt="" style="width:80px" />
+          <div class="product-list-desc with-rating">{{rate.name}} <i>${{rate.price}}</i>
+            <div class="rating" ng-class="rate.rating">
+              <div class="star-rating"></div>
+              <div class="star-bg"></div>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li><div class="clearfix"></div></li>
+
+    </ul>
+
+  </div>
+
+
+  <!-- Weekly Sales -->
+  <div class="one-third column">
+
+    <!-- Headline -->
+    <h3 class="headline">Weekly Sales</h3>
+    <span class="line margin-bottom-0"></span>
+    <div class="clearfix"></div>
+
+
+    <ul class="product-list discount" ng-show="weekly_sales.length>0">
+
+      <li ng-repeat="sale in weekly_sales">
+        <a href="/product/{{sale.id}}">
+          <img ng-src="{{sale.images[0]}}" alt="" style="width:80px" />
+          <div class="product-list-desc">{{sale.name}} <i>${{sale.price}}<b>${{sale.weekly_sale_price}}</b></i></div>
+        </a>
+      </li>
+
+      <li><div class="clearfix"></div></li>
+
+    </ul>
+
+  </div>
+
+</div>
+<div class="clearfix"></div>
+
+
+<% include footer %>

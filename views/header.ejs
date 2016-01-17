@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title><%- title %></title>
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+	================================================== -->
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/colors/green.css" id="colors">
+	<style type="text/css">
+	  .truncate {
+	      
+	      white-space: nowrap;
+	      overflow: hidden;
+	      text-overflow: ellipsis;
+	    }
+	</style>
+ 
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body class="boxed" ng-app="testYoAngularGrunt2App">
+
+<div id="wrapper" ng-controller="MainCtrl">
+
+
+<!-- Top Bar
+================================================== -->
+<div id="top-bar">
+  <div class="container">
+
+    <!-- Top Bar Menu -->
+    <div class="ten columns">
+      <ul class="top-bar-menu">
+        <li><i class="fa fa-phone"></i> (564) 123 4567</li>
+        <li><i class="fa fa-envelope"></i> <a href="">mail@example.com</a></li>
+        <li>
+          <div class="top-bar-dropdown">
+            <span>English</span>
+            <ul class="options">
+              <li><div class="arrow"></div></li>
+              <li><a href="">English</a></li>
+              <li><a href="">Polish</a></li>
+              <li><a href="">Deutsch</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="top-bar-dropdown">
+            <span>USD</span>
+            <ul class="options">
+              <li><div class="arrow"></div></li>
+              <li><a href="">USD</a></li>
+              <li><a href="">PLN</a></li>
+              <li><a href="">EUR</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="six columns">
+      <ul class="social-icons">
+        <li><a class="facebook" href=""><i class="icon-facebook"></i></a></li>
+        <li><a class="twitter" href=""><i class="icon-twitter"></i></a></li>
+        <li><a class="dribbble" href=""><i class="icon-dribbble"></i></a></li>
+        <li><a class="gplus" href=""><i class="icon-gplus"></i></a></li>
+        <li><a class="pinterest" href=""><i class="icon-pinterest"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<!-- Header
+================================================== -->
+<div class="container">
+
+
+  <!-- Logo -->
+  <div class="four columns">
+    <div id="logo">
+      <h1><a href="/"><img src="/img/logo.png" alt="Trizzy" /></a></h1>
+    </div>
+  </div>
+
+
+  <!-- Additional Menu -->
+  <div class="twelve columns">
+    <div id="additional-menu">
+      <ul>
+        <li><a href="shopping-cart.html">Shopping Cart</a></li>
+        <li><a href="wishlist.html">WishList <span>(2)</span></a></li>
+        <li><a href="checkout-billing-details.html">Checkout</a></li>
+        <li><a href="my-account.html">My Account</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- Shopping Cart -->
+  <div class="twelve columns">
+
+    <div id="cart">
+
+      <!-- Button -->
+      <div class="cart-btn">
+        <a href="#" class="button adc">$178.00</a>
+      </div>
+
+      <div class="cart-list">
+
+      <div class="arrow"></div>
+
+        <div class="cart-amount">
+          <span>2 items in the shopping cart</span>
+        </div>
+
+          <ul>
+            <li>
+              <a href="#"><img src="/img/small_product_list_08.jpg" alt="" /></a>
+              <a href="#">Asus Zenfone</a>
+              <span>1 x $799.00</span>
+              <div class="clearfix"></div>
+            </li>
+          </ul>
+
+        <div class="cart-buttons button">
+          <a href="shopping-cart.html" class="view-cart" ><span data-hover="View Cart"><span>View Cart</span></span></a>
+          <a href="checkout-billing-details.html" class="checkout"><span data-hover="Checkout">Checkout</span></a>
+        </div>
+        <div class="clearfix">
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Search -->
+    <nav class="top-search">
+      <form action="#" method="get">
+        <button><i class="fa fa-search"></i></button>
+        <input class="search-field" type="text" placeholder="Search" value=""/>
+      </form>
+    </nav>
+
+  </div>
+
+</div>
+
+
+<!-- Navigation
+================================================== -->
+<div class="container">
+  <div class="sixteen columns">
+    
+    <a href="#menu" class="menu-trigger"><i class="fa fa-bars"></i> Menu</a>
+
+    <nav id="navigation">
+      <ul class="menu" id="responsive">
+
+        <li><a href="/" class="current homepage" id="current">Home</a></li>
+
+        <li class="demo-button" ng-repeat="category in categories">
+          <a href="/products/{{category.id}}">{{category.name}}</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</div>

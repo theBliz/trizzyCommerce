@@ -1,0 +1,290 @@
+<% include header %>
+
+<div style="display:none" id="product_id"><%- id %></div>
+<div ng-controller="singleProductCtrl">
+	<!-- Titlebar
+================================================== -->
+<section class="titlebar">
+<div class="container">
+	<div class="sixteen columns">
+		<h2>Shop</h2>
+		
+		<nav id="breadcrumbs">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li>{{category_name_internal}}</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+</section>
+
+
+<div class="container">
+
+<!-- Slider
+================================================== -->
+	<div class="eight columns" >
+		<img class="rsImg" src="{{product.images[0]}}" alt="" />
+	</div>
+
+
+<!-- Content
+================================================== -->
+	<div class="eight columns">
+		<div class="product-page">
+			
+			<!-- Headline -->
+			<section class="title">
+				<h2>{{product.name}}</h2>
+				<span ng-show="product.weekly_sale_price.length>0" class="product-price-discount">${{product.price}}<i>${{product.weekly_sale_price}}</i></span>
+				<span ng-hide="product.weekly_sale_price.length>0" class="product-price"><i>${{product.price}}</i></span>
+
+				<div ng-show="product.rating.length>0"class="reviews-counter">
+					<div class="rating" ng-class="product.rating">
+						<div class="star-rating"></div>
+						<div class="star-bg"></div>
+					</div>
+					<!--<span>3 Reviews</span>-->
+				</div>
+			</section>
+
+			<!-- Text Parapgraph -->
+			<section>
+				<p class="margin-reset">{{product.description}}</p>
+
+				<!-- Share Buttons -->	
+				<div class="share-buttons">
+					<ul>
+						<li><a href="#">Share</a></li>
+						<li class="share-facebook"><a href="#">Facebook</a></li>
+						<li class="share-twitter"><a href="#">Twitter</a></li>
+						<li class="share-gplus"><a href="#">Google Plus</a></li>
+						<li class="share-pinit"><a href="#">Pin It</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+
+			</section>
+
+
+			<!-- Variables -->
+			<!--<section class="variables">
+
+				<div class="four alpha columns">
+					<label for="size">Size</label>
+					<select id="size" name="size">
+						<option>S</option>
+						<option>M</option>
+						<option>L</option>
+						<option>XL</option>
+					</select>
+				</div>
+
+				<div class="four omega columns">
+					<label for="color">Color</label>
+					<select id="color" name="color">
+						<option>Blue</option>
+						<option>Green</option>
+						<option>Red</option>
+					</select>
+				</div>
+				<div class="clearfix"></div>
+
+			</section>-->
+
+
+			<section class="linking">
+
+					<form action='#'>
+					    <div class="qtyminus"></div>
+					    <input type='text' name="quantity" value='1' class="qty" />
+					    <div class="qtyplus"></div>
+					</form>
+
+					<a href="#" class="button adc">Add to Cart</a>
+					<div class="clearfix"></div>
+
+			</section>
+
+		</div>
+	</div>
+
+</div>
+
+
+<div class="container">
+	<div class="sixteen columns">
+			<!-- Tabs Navigation -->
+			<ul class="tabs-nav">
+				<!--<li class="active"><a href="#tab1">Item Description</a></li>-->
+				<li class="active"><a href="#tab1">Additional Information</a></li>
+				<!--<li><a href="#tab3">Reviews <span class="tab-reviews">(3)</span></a></li>-->
+			</ul>
+
+			<!-- Tabs Content -->
+			<div class="tabs-container">
+
+				<!--<div class="tab-content" id="tab2">
+					<p>Lorem ipsum pharetra lorem felis. Aliquam egestas consectetur elementum class aptentea taciti sociosqu ad litora torquent perea conubia nostra lorem consectetur adipiscing elit. Donec vestibulum justo a diam ultricies pellentesque. Fusce vehicula libero arcu, vitae ornare turpis elementum at. Etiam posuere quam nec ligula dignissim iaculis donec eleifend laoreet ornare. Quisque mattis luctus est, a placerat elit pharetra.</p>
+				</div>-->
+
+				<div class="tab-content" id="tab1">
+
+					<table class="basic-table">
+
+						<tr ng-show="product.OS">
+							<th>OS</th>
+							<td>{{product.OS}}</td>
+						</tr>
+
+						<tr ng-show="product.Display">
+							<th>Display</th>
+							<td>{{product.Display}}"</td>
+						</tr>
+
+						<tr ng-show="product.Fotocamera">
+							<th>Fotocamera</th>
+							<td>{{product.Fotocamera}} MP</td>
+						</tr>
+
+						<tr ng-show="product.Memoria">
+							<th>Memoria</th>
+							<td>{{product.Memoria}} GB</td>
+						</tr>
+
+						<tr ng-show="product.Ram">
+							<th>Ram</th>
+							<td>{{product.Ram}}</td>
+						</tr>
+
+						<tr ng-show="product.Classe_Energetica">
+							<th>Classe Energetica</th>
+							<td>{{product.Classe_Energetica}}</td>
+						</tr>
+
+						<tr ng-show="product.Definizione">
+							<th>Definizione</th>
+							<td>{{product.Definizione}}</td>
+						</tr>
+
+						<tr ng-show="product.Distribuzione">
+							<th>Distribuzione</th>
+							<td>{{product.Distribuzione}}</td>
+						</tr>
+
+						<tr ng-show="product.Pollici">
+							<th>Pollici</th>
+							<td>{{product.Pollici}}</td>
+						</tr>
+
+						<tr ng-show="product.Smart_Tv">
+							<th>Smart TV</th>
+							<td>Si</td>
+						</tr>
+
+						<tr ng-show="product.WiFi">
+							<th>WiFi</th>
+							<td>{{product.WiFi}}</td>
+						</tr>
+
+					</table>
+
+				</div>
+
+				<div class="tab-content" id="tab3">
+
+					<!-- Reviews -->
+					<section class="comments">
+
+						<ul>
+							<li>
+								<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+								<div class="comment-content"><div class="arrow-comment"></div>
+									<div class="comment-by"><strong>John Doe</strong><span class="date">May 28, 2014</span>
+										<div class="rating five-stars"><div class="star-rating"></div><div class="star-bg"></div></div>
+									</div>
+									<p>Maecenas dignissim euismod nunc, in commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget just.</p>
+								</div>
+							</li>
+
+							<li>
+								<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+								<div class="comment-content"><div class="arrow-comment"></div>
+									<div class="comment-by"><strong>Kathy Brown</strong><span class="date">May 18, 2014</span>
+										<div class="rating five-stars"><div class="star-rating"></div><div class="star-bg"></div></div>
+									</div>
+									<p>Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus</p>
+								</div>
+							</li>
+
+							<li>
+								<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+								<div class="comment-content"><div class="arrow-comment"></div>
+									<div class="comment-by"><strong>John Doe</strong><span class="date">May 10, 2014</span>
+										<div class="rating four-stars"><div class="star-rating"></div><div class="star-bg"></div></div>
+									</div>
+									<p>Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris.</p>
+								</div>
+
+							</li>
+						 </ul>
+
+						<a href="#small-dialog" class="popup-with-zoom-anim button color">Add Review</a>
+
+						<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+							<h3 class="headline">Add Review</h3><span class="line margin-bottom-25"></span><div class="clearfix"></div>
+
+							<!-- Form -->
+							<form id="add-comment" class="add-comment">
+								<fieldset>
+
+									<div>
+										<label>Name:</label>
+										<input type="text" value=""/>
+									</div>
+
+									<div>
+										<label>Rating:</label>
+										<span class="rate">
+											<span class="star"></span>
+											<span class="star"></span>
+											<span class="star"></span>
+											<span class="star"></span>
+											<span class="star"></span>
+										</span>
+										<div class="clearfix"></div>
+									</div>
+
+									<div class="margin-top-20">
+										<label>Email: <span>*</span></label>
+										<input type="text" value=""/>
+									</div>
+
+									<div>
+										<label>Review: <span>*</span></label>
+										<textarea cols="40" rows="3"></textarea>
+									</div>
+
+								</fieldset>
+
+								<a href="#" class="button color">Add Review</a>
+								<div class="clearfix"></div>
+
+							</form>
+						</div>
+
+					</section>
+
+				</div>
+
+			</div>
+	</div>
+</div>
+
+<div class="margin-top-50"></div>
+
+</div>
+
+
+<% include footer %>
